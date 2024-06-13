@@ -1,4 +1,4 @@
-﻿![Fundo com uma mão digitando no notebook em preto e branco com os seguintes textos na cor branca: README, DESAFIO TÉCNICO - API BANCO, DESAFIO REALIZADO POR DIRCEU DOS SANTOS ](https://i.ibb.co/Lp11mzv/Banner-para-Docs-Gloss-rio-da-Equipe-de-Design-Estilo-Editorial-Preto-e-Branco.png)
+![Fundo com uma mão digitando no notebook em preto e branco com os seguintes textos na cor branca: README, DESAFIO TÉCNICO - API BANCO, DESAFIO REALIZADO POR DIRCEU DOS SANTOS ](https://i.ibb.co/Lp11mzv/Banner-para-Docs-Gloss-rio-da-Equipe-de-Design-Estilo-Editorial-Preto-e-Branco.png)
 # Desafio Técnico: API Banco
 
 Bem-vindo ao repositório do desafio técnico. Este projeto consiste em uma API simples desenvolvida para o desafio técnico. Abaixo, você encontrará instruções sobre como configurar e executar o projeto localmente.
@@ -6,9 +6,6 @@ Bem-vindo ao repositório do desafio técnico. Este projeto consiste em uma API 
 ## Sumário
 
 - [Texto do Desafio](#texto-do-desafio)
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Configuração](#configuração)
 - [Execução](#execução)
 - [Uso](#uso)
 
@@ -167,81 +164,23 @@ Adicione um readme de como executar sua aplicação.
 
 
 
-## Pré-requisitos
 
-Antes de começar, certifique-se de ter o seguinte instalado:
-
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/) (versão 14 ou superior)
-- [NPM](https://www.npmjs.com/)
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
-
-## Instalação
-
-1. Clone o repositório:
-
-    ```bash
-    git clone https://github.com/Dirceusljr/DC-api_banco
-    ```
-
-2. Navegue até o diretório do projeto:
-
-    ```bash
-    cd nome-do-repositorio
-    ```
-
-## Configuração
-
-1. Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis de ambiente conforme o exemplo abaixo:
-
-    ```env
-    DB_HOST=database
-    DB_USER=''
-    DB_PASSWORD=''
-    DB_NAME=''
-    DB_ROOT_PASSWORD=''
-    ```
 
 ## Execução
 
-1. Abra o docker e inicie os contêineres do Docker:
 
-    ```bash
-    docker-compose up
-    ```
-
-2. Abra outro terminal e use os seguintes comandos: 
-    ```bash
-    source .env
-    docker exec -i database-banco mariadb -u root -p${DB_ROOT_PASSWORD} bank_db < src/config/conta.sql
-    docker exec -i database-banco mariadb -u root -p${DB_ROOT_PASSWORD} bank_db < src/config/transacao.sql
-    ```
-    Esses comandos irão criar as tabelas conta e transacao no banco de dados bank_db. A tabela conta terá os seguintes valores iniciais:
-    
-    
-	|iid|conta_id|saldo|
-	|--|--|--|
-	| 1 | 9876  | 100.00  |
-	| 2 |  3258 |200.00  |
-	| 3 | 1109 | 300.00 |
-	| 4 | 2301 | 400.00 |
-	| 5 | 2212 | 500.00 |
-
-	A tabela transacao não tem valores de entrada iniciais.
-   
-3. A API estará disponível em `http://localhost:3000`.
+A API estará disponível em `https://api-banco-e0id.onrender.com`
 
 
 ## Uso
 
 A API possui os seguintes endpoints:
 
-- `GET   /conta` - Lista todas as contas cadastradas.
+- `GET  /conta` - Lista todas as contas cadastradas.
 - `GET  /conta?id=1234` - Lista a conta cujo conta_id = 1234.
 - `POST /conta` - Cria uma nova conta.
 - `GET  /transacao` - Lista todas as transações realizadas.
 - `GET  /transacao?id=1234` - Lista as transações realizadas pela conta_id = 1234.
-- `POST /transacao` - Realiza uma nova transação.
+- `POST /transacao/:id` - Realiza uma nova transação.
 
 
