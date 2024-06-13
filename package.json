@@ -8,7 +8,6 @@
     "node": "18"
   },
   "scripts": {
-    "postinstall": "docker exec -i database-banco mariadb -u root -p${DB_ROOT_PASSWORD} bank_db < src/config/conta.sql && docker exec -i database-banco mariadb -u root -p${DB_ROOT_PASSWORD} bank_db < src/config/transacao.sql ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm install && nodemon --legacy-watch --watch"
   },
